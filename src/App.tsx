@@ -8,8 +8,8 @@ export default function App() {
 
   const jsonText = JSON.stringify(config, null, 2);
 
-  const title = "tauri fs api";
-  const path = "$HOME/.config/config.json";
+  const TITLE = "tauri fs api";
+  const PATH = "$HOME/.config/config.json";
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -25,12 +25,12 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>{title}</h1>
+      <h1>{TITLE}</h1>
 
       <hr />
 
       <div>
-        <h2 style={{ color: "gray" }}>{path}</h2>
+        <h2 style={{ color: "gray" }}>{PATH}</h2>
         <pre>{jsonText}</pre>
       </div>
 
