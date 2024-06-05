@@ -122,3 +122,8 @@ button {
     background-color: #0f0f0f69;
   }
 }
+
+.list-item {
+  position: relative;
+  transition: transform 0.3s ease-in-out;
+}

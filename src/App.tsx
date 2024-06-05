@@ -60,6 +60,28 @@ export default function App() {
     }
   };
 
+  const moveSetting4ItemUp = (index: number) => {
+    if (config && index > 0) {
+      const updatedSetting4 = [...config.setting4];
+      [updatedSetting4[index - 1], updatedSetting4[index]] = [
+        updatedSetting4[index],
+        updatedSetting4[index - 1],
+      ];
+      setConfig({ ...config, setting4: updatedSetting4 });
+    }
+  };
+
+  const moveSetting4ItemDown = (index: number) => {
+    if (config && index < config.setting4.length - 1) {
+      const updatedSetting4 = [...config.setting4];
+      [updatedSetting4[index], updatedSetting4[index + 1]] = [
+        updatedSetting4[index + 1],
+        updatedSetting4[index],
+      ];
+      setConfig({ ...config, setting4: updatedSetting4 });
+    }
+  };
+
   return (
     <div className="App">
       <h1>{TITLE}</h1>
@@ -104,6 +126,30 @@ export default function App() {
                 value={item}
                 onChange={(e) => handleSetting4ItemChange(e, index)}
               />
+              {index !== 0 && (
+                <button
+                  style={
+                    index === config.setting4.length - 1
+                      ? { width: "100px" }
+                      : { width: "48px" }
+                  }
+                  onClick={() => moveSetting4ItemUp(index)}
+                >
+                  ↑
+                </button>
+              )}
+              {index !== config.setting4.length - 1 && (
+                <button
+                  style={
+                    index === 0
+                      ? { width: "100px" }
+                      : { width: "48px", marginLeft: "4px" }
+                  }
+                  onClick={() => moveSetting4ItemDown(index)}
+                >
+                  ↓
+                </button>
+              )}
             </li>
           ))}
         </ul>
